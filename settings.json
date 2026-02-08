@@ -35,6 +35,18 @@
         ]
       }
     ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/vivekkarmarkar/.claude/hooks/claude-notify.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",
@@ -42,6 +54,11 @@
           {
             "type": "command",
             "command": "/home/vivekkarmarkar/.claude/hooks/sync-plugins.sh"
+          },
+          {
+            "type": "command",
+            "command": "/home/vivekkarmarkar/.claude/hooks/claude-notify.sh",
+            "timeout": 5
           }
         ]
       }
