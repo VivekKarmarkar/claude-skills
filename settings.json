@@ -3,6 +3,18 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "You decide whether the user's prompt would benefit from an ASCII diagram in Claude's response.\n\nUser prompt: $ARGUMENTS\n\nRespond ok: true (with additionalContext) if the prompt involves ANY of:\n- System architecture or infrastructure (servers, databases, services, APIs)\n- Data flow or pipelines (ETL, streaming, request/response chains)\n- Workflow or process steps (CI/CD, deployment, build pipelines)\n- Network topology or communication between components\n- State machines or lifecycle transitions\n- Hook/plugin/MCP chains or event flows\n- Multi-service interactions (microservices, message queues, load balancers)\n- Directory structures or file organization\n- Git branching strategies or merge flows\n\nIf ok: true, set additionalContext to: \"Include a clear ASCII diagram illustrating the system/workflow/architecture being discussed. Use box-drawing characters (┌─┐│└─┘), arrows (→ ← ↑ ↓), and labels. Make it visually clean and easy to follow.\"\n\nRespond ok: true WITHOUT additionalContext if the prompt is simple, conversational, about a single file edit, a quick question, or doesn't involve system-level complexity.",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
