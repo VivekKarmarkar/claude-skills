@@ -9,6 +9,7 @@
 REPO_DIR="$HOME/claude-skills"
 MANIFEST="$HOME/.claude/plugins/installed_plugins.json"
 PLUGINS_SRC="$HOME/.claude/plugins/marketplaces/claude-plugins-official/plugins"
+PLUGINS_CACHE="$HOME/.claude/plugins/cache/claude-plugins-official"
 BACKUP_DIR="$HOME/skills-backup"
 
 # Skip if repo or manifest doesn't exist
