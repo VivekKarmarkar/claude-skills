@@ -7,6 +7,15 @@ PLUGINS_DIR="$REPO_DIR/plugins"
 HOOKS_DIR="$REPO_DIR/hooks"
 README="$REPO_DIR/README.md"
 
+OVERRIDES_FILE="$REPO_DIR/description-overrides.conf"
+
+# Check for a custom description override
+get_override() {
+  local name="$1"
+  [ -f "$OVERRIDES_FILE" ] || return
+  grep -m1 "^${name}=" "$OVERRIDES_FILE" | sed "s/^${name}=//"
+}
+
 truncate_desc() {
   local text="$1"
   local max="${2:-80}"
