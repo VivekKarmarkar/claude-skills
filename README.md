@@ -58,9 +58,17 @@ Backup of my [Claude Code](https://claude.ai/claude-code) skills and plugins. Au
 | `swift-lsp` | swift-lsp |
 | `typescript-lsp` | typescript-lsp |
 
+## Hooks (3)
+
+| Hook | Description |
+|------|-------------|
+| `backup-skills.sh` | Hook: Backup skills and plugins after any file write to ~/.claude/skills/ or… |
+| `generate-readme.sh` | Generates README.md for the claude-skills repo from current skills and plugins |
+| `sync-plugins.sh` | Hook: Detect new/changed plugins and sync to GitHub repo |
+
 ## Auto-Backup
 
-A PostToolUse hook watches for writes to `~/.claude/skills/` and `~/.claude/plugins/`. On any change it:
+Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, and `~/.claude/hooks/`. On any change:
 
 1. Syncs to a local backup at `~/skills-backup/`
 2. Regenerates this README

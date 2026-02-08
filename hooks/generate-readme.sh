@@ -117,11 +117,30 @@ for dir in "$PLUGINS_DIR"/*/; do
   echo "| \`$name\` | $desc |" >> "$README"
 done
 
+echo "" >> "$README"
+echo "## Hooks ($hook_count)" >> "$README"
+echo "" >> "$README"
+echo "| Hook | Description |" >> "$README"
+echo "|------|-------------|" >> "$README"
+
+for script in "$HOOKS_DIR"/*.sh; do
+  [ -f "$script" ] || continue
+  name=$(basename "$script")
+  # Extract description from the first comment line after shebang
+  desc=$(sed -n '2s/^# *//p' "$script")
+  if [ -n "$desc" ]; then
+    desc=$(truncate_desc "$desc")
+  else
+    desc="-"
+  fi
+  echo "| \`$name\` | $desc |" >> "$README"
+done
+
 cat >> "$README" << 'FOOTER'
 
 ## Auto-Backup
 
-A PostToolUse hook watches for writes to `~/.claude/skills/` and `~/.claude/plugins/`. On any change it:
+Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, and `~/.claude/hooks/`. On any change:
 
 1. Syncs to a local backup at `~/skills-backup/`
 2. Regenerates this README
