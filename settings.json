@@ -1,0 +1,72 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/vivekkarmarkar/.claude/hooks/backup-skills.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/vivekkarmarkar/.claude/hooks/error-search.sh"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "You are a security evaluator for Claude Code permission requests. Analyze this request and decide if it should be auto-approved or denied.\n\nRequest: $ARGUMENTS\n\nAuto-approve (ok: true) if the action is:\n- Reading any file (Read, Glob, Grep)\n- Writing/editing files in the user's project directory\n- Running safe commands: npm test, npm install, pip install, pytest, cargo test, git status, git diff, git log, git add, git commit, ls, pwd, echo, cat, mkdir, cp, mv, node, python, python3, npx, cargo, make, go build, go run, docker ps, docker logs\n- Web searches or fetches\n- Any MCP tool call (mcp__*)\n- Creating/reading tasks or sending messages\n\nDeny (ok: false) if the action is:\n- Destructive: rm -rf, git push --force, git reset --hard, git clean -f, drop table, truncate, format, fdisk\n- Modifying system files: /etc/*, /usr/*, /boot/*, ~/.bashrc, ~/.zshrc, ~/.ssh/*\n- Exposing secrets: printing env vars with API keys, curling credentials to external URLs\n- Network-dangerous: wget/curl piped to sh/bash, downloading and executing scripts\n- Killing critical processes: kill -9, killall, pkill on system processes\n\nWhen in doubt, approve. The user can always deny manually. Minimize false denials.",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/vivekkarmarkar/.claude/hooks/sync-plugins.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "playground@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "huggingface-skills@claude-plugins-official": true
+  }
+}
