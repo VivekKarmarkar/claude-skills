@@ -7,7 +7,7 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | Skill | Description |
 |-------|-------------|
 | `cooldown` | End-of-session cooldown that generates all project artifacts in sequence —… |
-| `gitcommit` | - |
+| `gitcommit` | Git Commit: Commit and Push |
 | `gitinit` | Git Init: Initialize a Private Git Repo |
 | `gitpublic` | Git Public: Make a Private Repo Public |
 | `makesong` | Make Song: Generate & Download Music with Suno |
