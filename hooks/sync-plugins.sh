@@ -60,12 +60,29 @@ for dir in "$REPO_DIR/plugins"/*/; do
   fi
 done
 
-# 2. Sync each installed plugin from marketplace dir
+# 2. Sync each installed plugin — try marketplace dir first, fall back to cache
 for name in $installed_names; do
   src="$PLUGINS_SRC/$name"
   if [ -d "$src" ]; then
     rsync -a --delete "$src/" "$REPO_DIR/plugins/$name/"
     rsync -a --delete "$src/" "$BACKUP_DIR/plugins/$name/"
+  elif [ -d "$PLUGINS_CACHE/$name" ]; then
+    # Plugin only exists in cache (not in marketplace catalog)
+    # Cache structure: <name>/<version>/ — find the first version dir with content
+    cache_src=""
+    for version_dir in "$PLUGINS_CACHE/$name"/*/; do
+      [ -d "$version_dir" ] || continue
+      # Check if version dir has any content (skip empty stubs)
+      if [ "$(ls -A "$version_dir" 2>/dev/null)" ]; then
+        cache_src="$version_dir"
+        break
+      fi
+    done
+    if [ -n "$cache_src" ]; then
+      rsync -a --delete "$cache_src" "$REPO_DIR/plugins/$name/"
+      rsync -a --delete "$cache_src" "$BACKUP_DIR/plugins/$name/"
+    fi
+    # If all version dirs are empty, skip silently (stub plugin with no files)
   fi
 done
 
