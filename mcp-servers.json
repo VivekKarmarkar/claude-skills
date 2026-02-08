@@ -21,5 +21,12 @@
       "/home/vivekkarmarkar/.claude/memory"
     ],
     "env": {}
+  },
+  "claude-in-chrome": {
+    "type": "chrome-extension",
+    "command": "chrome-extension",
+    "args": [],
+    "env": {},
+    "_note": "Injected at runtime by the Claude in Chrome extension \u2014 no local config needed"
   }
 }

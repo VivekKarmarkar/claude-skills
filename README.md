@@ -67,10 +67,11 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `sync-mcp.sh` | Export MCP server configs (with secrets redacted) to the repo |
 | `sync-plugins.sh` | Hook: Detect new/changed plugins and sync to GitHub repo |
 
-## MCP Servers (2)
+## MCP Servers (3)
 
 | Server | Command | Description |
 |--------|---------|-------------|
+| `claude-in-chrome` | `chrome-extension` | Browser automation via Chrome extension (screenshots, clicks, navigation, forms) |
 | `memory` | `npx` | Persistent knowledge graph across conversations |
 | `voicemode` | `uvx` | Voice conversation with STT/TTS via ElevenLabs + Kokoro + OpenAI |
 
