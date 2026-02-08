@@ -70,4 +70,7 @@ else
     &>/dev/null
 fi
 
+# Play notification sound (background, don't block)
+paplay "$SOUND" &>/dev/null &
+
 exit 0
