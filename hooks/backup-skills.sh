@@ -5,8 +5,8 @@
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // ""')
 
-# Trigger on writes to skills, plugins, hooks, or agents directory
-if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/plugins/"* ]] || [[ "$FILE_PATH" == *"/.claude/hooks/"* ]] || [[ "$FILE_PATH" == *"/.agents/"* ]]; then
+# Trigger on writes to skills, plugins, hooks, agents, or claude.json (MCP config)
+if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/plugins/"* ]] || [[ "$FILE_PATH" == *"/.claude/hooks/"* ]] || [[ "$FILE_PATH" == *"/.agents/"* ]] || [[ "$FILE_PATH" == *"/.claude.json" ]]; then
   BACKUP_DIR="$HOME/skills-backup"
 
   mkdir -p "$BACKUP_DIR/custom-skills"
