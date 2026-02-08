@@ -2,7 +2,7 @@
 
 My personalized operating system for Claude Code — skills, plugins, and hooks that extend what Claude can do. Auto-synced whenever anything is added or edited.
 
-## Skills (18)
+## Skills (19)
 
 | Skill | Description |
 |-------|-------------|
@@ -19,6 +19,7 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `projectstatus` | Generate a project status report. Use when the user wants a status update,… |
 | `remember` | Commit important information to the persistent memory graph. Use when the user… |
 | `remotion-best-practices` | Best practices for Remotion - Video creation in React |
+| `review` | Spaced Repetition Review: `/review` |
 | `roadmap` | Create a project roadmap document. Use when the user wants to plan milestones,… |
 | `summary` | Summarize the current chat session into a well-structured markdown file. Use… |
 | `swarm` | Spin up autonomous agent teams with bypassed permissions |
