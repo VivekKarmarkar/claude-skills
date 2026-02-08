@@ -84,6 +84,7 @@ get_plugin_description() {
 # Count
 skill_count=$(ls -d "$SKILLS_DIR"/*/ 2>/dev/null | wc -l)
 plugin_count=$(ls -d "$PLUGINS_DIR"/*/ 2>/dev/null | wc -l)
+hook_count=$(ls "$HOOKS_DIR"/*.sh 2>/dev/null | wc -l)
 
 # Generate
 cat > "$README" << 'HEADER'
