@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "plugins": {
+    "playground@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/playground/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-06T04:56:44.639Z",
+        "lastUpdated": "2026-02-07T18:18:37.923Z",
+        "gitCommitSha": "236752ad9ab36029b648bfd94707944760242768"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/frontend-design/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:34:14.573Z",
+        "lastUpdated": "2026-02-08T18:34:14.573Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/code-review/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:34:35.768Z",
+        "lastUpdated": "2026-02-08T18:34:35.768Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/github/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:34:48.085Z",
+        "lastUpdated": "2026-02-08T18:34:48.085Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/feature-dev/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:34:58.815Z",
+        "lastUpdated": "2026-02-08T18:34:58.815Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-08T18:35:09.500Z",
+        "lastUpdated": "2026-02-08T18:35:09.500Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/ralph-loop/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:35:22.143Z",
+        "lastUpdated": "2026-02-08T18:35:22.143Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-08T18:35:54.568Z",
+        "lastUpdated": "2026-02-08T18:35:54.568Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/superpowers/4.2.0",
+        "version": "4.2.0",
+        "installedAt": "2026-02-08T18:36:02.936Z",
+        "lastUpdated": "2026-02-08T18:36:02.936Z",
+        "gitCommitSha": "a98c5dfc9de0df5318f4980d91d24780a566ee60"
+      }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/playwright/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:36:10.282Z",
+        "lastUpdated": "2026-02-08T18:36:10.282Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/commit-commands/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:36:19.315Z",
+        "lastUpdated": "2026-02-08T18:36:19.315Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:36:28.701Z",
+        "lastUpdated": "2026-02-08T18:36:28.701Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "supabase@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/supabase/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:36:39.930Z",
+        "lastUpdated": "2026-02-08T18:36:39.930Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "explanatory-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:36:53.463Z",
+        "lastUpdated": "2026-02-08T18:36:53.463Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-08T18:37:03.891Z",
+        "lastUpdated": "2026-02-08T18:37:03.891Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "hookify@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/hookify/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:37:16.682Z",
+        "lastUpdated": "2026-02-08T18:37:16.682Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "vercel@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/vercel/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-08T18:37:25.628Z",
+        "lastUpdated": "2026-02-08T18:37:25.628Z",
+        "gitCommitSha": "ae067751b4f42c97d13054211657275029ca8b6d"
+      }
+    ],
+    "learning-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/learning-output-style/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:37:46.951Z",
+        "lastUpdated": "2026-02-08T18:37:46.951Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/slack/2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-08T18:37:55.792Z",
+        "lastUpdated": "2026-02-08T18:37:55.792Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "huggingface-skills@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/vivekkarmarkar/.claude/plugins/cache/claude-plugins-official/huggingface-skills/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-08T18:38:13.430Z",
+        "lastUpdated": "2026-02-08T18:38:13.430Z",
+        "gitCommitSha": "3f4f55d6264b7baddec94031eeda70780d7e9189"
+      }
+    ]
+  }
+}
