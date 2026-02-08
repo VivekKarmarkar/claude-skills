@@ -69,6 +69,8 @@ if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/p
       # Determine what type of thing changed for the commit message
       if [[ "$FILE_PATH" == *"/.claude.json" ]]; then
         CHANGE_TYPE="MCP config"
+      elif [[ "$FILE_PATH" == *"/.claude/settings.json" ]]; then
+        CHANGE_TYPE="settings"
       elif [[ "$FILE_PATH" == *"/.claude/hooks/"* ]]; then
         CHANGE_TYPE="hook"
       elif [[ "$FILE_PATH" == *"/.claude/plugins/"* ]]; then
