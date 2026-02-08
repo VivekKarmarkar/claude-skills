@@ -90,7 +90,7 @@ hook_count=$(ls "$HOOKS_DIR"/*.sh 2>/dev/null | wc -l)
 cat > "$README" << 'HEADER'
 # Claude Code OS for VivekKmk
 
-My personalized operating system for [Claude Code](https://claude.ai/claude-code) — skills, plugins, and hooks that extend what Claude can do. Auto-synced whenever anything is added or edited.
+My personalized operating system for Claude Code — skills, plugins, and hooks that extend what Claude can do. Auto-synced whenever anything is added or edited.
 
 HEADER
 
