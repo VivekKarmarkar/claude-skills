@@ -5,8 +5,8 @@
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // ""')
 
-# Trigger on writes to skills directory, plugins directory, or agents directory
-if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/plugins/"* ]] || [[ "$FILE_PATH" == *"/.agents/"* ]]; then
+# Trigger on writes to skills, plugins, hooks, or agents directory
+if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/plugins/"* ]] || [[ "$FILE_PATH" == *"/.claude/hooks/"* ]] || [[ "$FILE_PATH" == *"/.agents/"* ]]; then
   BACKUP_DIR="$HOME/skills-backup"
 
   mkdir -p "$BACKUP_DIR/custom-skills"
@@ -50,6 +50,9 @@ if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/p
       mkdir -p "$REPO_DIR/plugins"
       rsync -a --delete "$PLUGINS_SRC/" "$REPO_DIR/plugins/"
     fi
+    # Copy hooks
+    mkdir -p "$REPO_DIR/hooks"
+    rsync -a --delete "$HOME/.claude/hooks/" "$REPO_DIR/hooks/"
     # Regenerate README
     "$HOME/.claude/hooks/generate-readme.sh"
     cd "$REPO_DIR"
