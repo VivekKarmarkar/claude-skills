@@ -62,7 +62,15 @@ if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/p
     cd "$REPO_DIR"
     git add -A
     if ! git diff --cached --quiet; then
-      git commit -m "Auto-backup: skill updated - $(basename "$FILE_PATH")"
+      # Determine what type of thing changed for the commit message
+      if [[ "$FILE_PATH" == *"/.claude/hooks/"* ]]; then
+        CHANGE_TYPE="hook"
+      elif [[ "$FILE_PATH" == *"/.claude/plugins/"* ]]; then
+        CHANGE_TYPE="plugin"
+      else
+        CHANGE_TYPE="skill"
+      fi
+      git commit -m "Auto-backup: $CHANGE_TYPE updated — $(basename "$FILE_PATH")"
       git push origin main 2>/dev/null
     fi
   fi
