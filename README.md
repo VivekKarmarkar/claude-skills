@@ -6,62 +6,62 @@ Backup of my [Claude Code](https://claude.ai/claude-code) skills and plugins. Au
 
 | Skill | Description |
 |-------|-------------|
-| `cooldown` | End-of-session artifact generation (slides, PDF, summary, roadmap, status) |
-| `makesong` | Create songs via Suno |
-| `makevideo` | Create videos with Manim |
-| `manim-composer` | Plan scene-by-scene Manim video sequences from vague ideas |
-| `manimce-best-practices` | Best practices for Manim Community Edition |
-| `manimgl-best-practices` | Best practices for ManimGL (3Blue1Brown version) |
-| `medium` | Write and publish to Medium |
-| `pdf` | Read, create, merge, split, fill, and manipulate PDFs |
-| `playground` | Create interactive single-file HTML playgrounds |
-| `pptx` | Create and edit PowerPoint presentations |
-| `prism` | Work with Prism (OpenAI LaTeX editor) |
-| `projectstatus` | Generate project status reports |
-| `remember` | Save facts and preferences to persistent memory |
-| `remotion-best-practices` | Best practices for Remotion (React video) |
-| `roadmap` | Create project roadmaps and milestone plans |
-| `summary` | Summarize chat sessions to markdown |
-| `swarm` | Multi-agent swarm coordination |
-| `tweet` | Compose tweets |
-| `warmup` | Start-of-session context loading |
+| `cooldown` | End-of-session cooldown that generates all project artifacts in sequence —… |
+| `makesong` | Make Song: Generate & Download Music with Suno |
+| `makevideo` | Make Video: Screen Record, Edit & Produce |
+| `manimce-best-practices` | Trigger when: (1) User mentions "manim" or "Manim Community" or "ManimCE", (2)… |
+| `manim-composer` | Trigger when: (1) User wants to create an educational/explainer video, (2) User… |
+| `manimgl-best-practices` | Trigger when: (1) User mentions "manimgl" or "ManimGL" or "3b1b manim", (2)… |
+| `medium` | Medium Article Writer |
+| `pdf` | Use this skill whenever the user wants to do anything with PDF files. This… |
+| `pptx` | Use this skill any time a .pptx file is involved in any way — as input, output,… |
+| `prism` | Prism LaTeX Writer |
+| `projectstatus` | Generate a project status report. Use when the user wants a status update,… |
+| `remember` | Commit important information to the persistent memory graph. Use when the user… |
+| `remotion-best-practices` | Best practices for Remotion - Video creation in React |
+| `roadmap` | Create a project roadmap document. Use when the user wants to plan milestones,… |
+| `summary` | Summarize the current chat session into a well-structured markdown file. Use… |
+| `swarm` | Swarm: Spin Up an Autonomous Agent Team |
+| `tweet` | Tweet: Draft and Post on X |
+| `warmup` | Start-of-session warmup that reads all existing project artifacts —… |
 
 ## Plugins (28)
 
 | Plugin | Description |
 |--------|-------------|
-| `agent-sdk-dev` | Agent SDK development helpers |
-| `clangd-lsp` | C/C++ language server |
-| `claude-code-setup` | Claude Code automation recommender |
-| `claude-md-management` | Audit and improve CLAUDE.md files |
-| `code-review` | Code review for pull requests |
-| `code-simplifier` | Simplify complex code |
-| `commit-commands` | Git commit, push, PR, and branch cleanup |
-| `csharp-lsp` | C# language server |
-| `example-plugin` | Reference plugin template |
-| `explanatory-output-style` | Explanatory output formatting |
-| `feature-dev` | Guided feature development |
-| `frontend-design` | Production-grade frontend UI design |
-| `gopls-lsp` | Go language server |
-| `hookify` | Create and manage hook rules |
-| `jdtls-lsp` | Java language server |
-| `kotlin-lsp` | Kotlin language server |
-| `learning-output-style` | Learning-oriented output formatting |
-| `lua-lsp` | Lua language server |
-| `php-lsp` | PHP language server |
-| `playground` | Interactive HTML playground creator |
-| `plugin-dev` | Plugin, skill, hook, and command development |
-| `pr-review-toolkit` | Comprehensive PR review with specialized agents |
-| `pyright-lsp` | Python language server |
-| `ralph-loop` | Autonomous Ralph Loop |
-| `rust-analyzer-lsp` | Rust language server |
-| `security-guidance` | Security reminders and guidance |
-| `swift-lsp` | Swift language server |
-| `typescript-lsp` | TypeScript language server |
+| `agent-sdk-dev` | Claude Agent SDK Development Plugin |
+| `clangd-lsp` | clangd-lsp |
+| `claude-code-setup` | Analyze codebases and recommend tailored Claude Code automations such as hooks,… |
+| `claude-md-management` | Tools to maintain and improve CLAUDE.md files - audit quality, capture session… |
+| `code-review` | Automated code review for pull requests using multiple specialized agents with… |
+| `code-simplifier` | Agent that simplifies and refines code for clarity, consistency, and… |
+| `commit-commands` | Streamline your git workflow with simple commands for committing, pushing, and… |
+| `csharp-lsp` | csharp-lsp |
+| `example-plugin` | A comprehensive example plugin demonstrating all Claude Code extension options… |
+| `explanatory-output-style` | Adds educational insights about implementation choices and codebase patterns… |
+| `feature-dev` | Comprehensive feature development workflow with specialized agents for codebase… |
+| `frontend-design` | Frontend design skill for UI/UX implementation |
+| `gopls-lsp` | gopls-lsp |
+| `hookify` | Easily create hooks to prevent unwanted behaviors by analyzing conversation… |
+| `jdtls-lsp` | jdtls-lsp |
+| `kotlin-lsp` | Supported Extensions |
+| `learning-output-style` | Interactive learning mode that requests meaningful code contributions at… |
+| `lua-lsp` | lua-lsp |
+| `php-lsp` | php-lsp |
+| `playground` | Creates interactive HTML playgrounds — self-contained single-file explorers… |
+| `plugin-dev` | Plugin Development Toolkit |
+| `pr-review-toolkit` | Comprehensive PR review agents specializing in comments, tests, error handling,… |
+| `pyright-lsp` | pyright-lsp |
+| `ralph-loop` | Continuous self-referential AI loops for interactive iterative development,… |
+| `rust-analyzer-lsp` | rust-analyzer-lsp |
+| `security-guidance` | Security reminder hook that warns about potential security issues when editing… |
+| `swift-lsp` | swift-lsp |
+| `typescript-lsp` | typescript-lsp |
 
 ## Auto-Backup
 
 A PostToolUse hook watches for writes to `~/.claude/skills/` and `~/.claude/plugins/`. On any change it:
 
 1. Syncs to a local backup at `~/skills-backup/`
-2. Commits and pushes to this repo
+2. Regenerates this README
+3. Commits and pushes to this repo
