@@ -67,7 +67,7 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `error-search.sh` | Classify errors as regular coding vs Claude Code specific and suggest targeted… |
 | `generate-readme.sh` | Generates README.md for the claude-skills repo from current skills and plugins |
 | `sync-mcp.sh` | Export MCP server configs (with secrets redacted) to the repo |
-| `sync-plugins.sh` | Hook: Detect new/changed plugins and sync to GitHub repo |
+| `sync-plugins.sh` | Hook: Sync INSTALLED plugins (not entire marketplace) to GitHub repo |
 
 ## MCP Servers (3)
 

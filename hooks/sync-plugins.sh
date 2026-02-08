@@ -1,34 +1,78 @@
 #!/bin/bash
-# Hook: Detect new/changed plugins and sync to GitHub repo
+# Hook: Sync INSTALLED plugins (not entire marketplace) to GitHub repo
 # Triggered by Stop event — runs at end of every turn, checks for diffs
+#
+# Source of truth: ~/.claude/plugins/installed_plugins.json
+# Plugin content:  ~/.claude/plugins/marketplaces/claude-plugins-official/plugins/<name>/
+# Stale plugins in the repo that are no longer installed get removed.
 
 REPO_DIR="$HOME/claude-skills"
+MANIFEST="$HOME/.claude/plugins/installed_plugins.json"
 PLUGINS_SRC="$HOME/.claude/plugins/marketplaces/claude-plugins-official/plugins"
 BACKUP_DIR="$HOME/skills-backup"
 
-# Skip if repo or source doesn't exist
+# Skip if repo or manifest doesn't exist
 [ -d "$REPO_DIR/.git" ] || exit 0
-[ -d "$PLUGINS_SRC" ] || exit 0
+[ -f "$MANIFEST" ] || exit 0
 
-# Quick diff: compare plugin directory listings
-current=$(ls "$PLUGINS_SRC" 2>/dev/null | sort)
-backed_up=$(ls "$REPO_DIR/plugins" 2>/dev/null | sort)
+# Get list of installed plugin names from installed_plugins.json
+installed_names=$(python3 -c "
+import json, sys
+with open('$MANIFEST') as f:
+    data = json.load(f)
+for key in sorted(data.get('plugins', {}).keys()):
+    print(key.split('@')[0])
+" 2>/dev/null)
 
-if [ "$current" = "$backed_up" ]; then
-  # No new plugins — skip the expensive rsync
+[ -z "$installed_names" ] && exit 0
+
+# Build sorted lists for comparison
+installed_sorted=$(echo "$installed_names" | sort)
+repo_sorted=$(ls "$REPO_DIR/plugins" 2>/dev/null | sort)
+
+# Also check if the manifest itself changed
+manifest_changed=false
+if [ -f "$REPO_DIR/installed_plugins.json" ]; then
+  if ! diff -q "$MANIFEST" "$REPO_DIR/installed_plugins.json" >/dev/null 2>&1; then
+    manifest_changed=true
+  fi
+else
+  manifest_changed=true
+fi
+
+# Quick check: if plugin lists match and manifest unchanged, nothing to do
+if [ "$installed_sorted" = "$repo_sorted" ] && [ "$manifest_changed" = false ]; then
   exit 0
 fi
 
-# New plugin detected — sync everything
-# 1. Local backup
-mkdir -p "$BACKUP_DIR/plugins"
-rsync -a --delete "$PLUGINS_SRC/" "$BACKUP_DIR/plugins/"
+# --- Something changed, do a full sync ---
 
-# 2. Sync to git repo
 mkdir -p "$REPO_DIR/plugins"
-rsync -a --delete "$PLUGINS_SRC/" "$REPO_DIR/plugins/"
+mkdir -p "$BACKUP_DIR/plugins"
 
-# 3. Also sync skills (in case both changed)
+# 1. Remove stale plugins from repo (installed previously but no longer in manifest)
+for dir in "$REPO_DIR/plugins"/*/; do
+  [ -d "$dir" ] || continue
+  name=$(basename "$dir")
+  if ! echo "$installed_names" | grep -qx "$name"; then
+    rm -rf "$REPO_DIR/plugins/$name"
+  fi
+done
+
+# 2. Sync each installed plugin from marketplace dir
+for name in $installed_names; do
+  src="$PLUGINS_SRC/$name"
+  if [ -d "$src" ]; then
+    rsync -a --delete "$src/" "$REPO_DIR/plugins/$name/"
+    rsync -a --delete "$src/" "$BACKUP_DIR/plugins/$name/"
+  fi
+done
+
+# 3. Copy the manifest for version tracking / restore
+cp "$MANIFEST" "$REPO_DIR/installed_plugins.json"
+cp "$MANIFEST" "$BACKUP_DIR/installed_plugins.json"
+
+# 4. Also sync skills (in case both changed)
 rsync -a --no-links --delete "$HOME/.claude/skills/" "$REPO_DIR/skills/"
 for link in "$HOME/.claude/skills/"*/; do
   name=$(basename "$link")
@@ -37,20 +81,24 @@ for link in "$HOME/.claude/skills/"*/; do
   fi
 done
 
-# 4. Regenerate README
+# 5. Regenerate README
 "$HOME/.claude/hooks/generate-readme.sh"
 
-# 5. Commit and push
+# 6. Commit and push
 cd "$REPO_DIR"
 git add -A
 if ! git diff --cached --quiet; then
-  # List the new plugins in the commit message
-  new_plugins=$(diff <(echo "$backed_up") <(echo "$current") | grep '^>' | sed 's/^> //' | tr '\n' ', ' | sed 's/,$//')
-  git commit -m "Auto-backup: new plugin(s) installed — $new_plugins"
+  # Summarize what changed
+  added=$(diff <(echo "$repo_sorted") <(echo "$installed_sorted") | grep '^>' | sed 's/^> //' | tr '\n' ', ' | sed 's/,$//')
+  removed=$(diff <(echo "$repo_sorted") <(echo "$installed_sorted") | grep '^<' | sed 's/^< //' | tr '\n' ', ' | sed 's/,$//')
+  msg="Auto-backup: plugins synced"
+  [ -n "$added" ] && msg="$msg — added: $added"
+  [ -n "$removed" ] && msg="$msg — removed: $removed"
+  git commit -m "$msg"
   git push origin main 2>/dev/null
 fi
 
 # Log
-echo "$(date '+%Y-%m-%d %H:%M:%S') - Synced new plugins: $new_plugins" >> "$BACKUP_DIR/backup.log"
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Plugin sync complete (installed: $(echo "$installed_names" | wc -l | tr -d ' '))" >> "$BACKUP_DIR/backup.log"
 
 exit 0
