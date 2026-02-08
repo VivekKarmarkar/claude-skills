@@ -66,9 +66,16 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `generate-readme.sh` | Generates README.md for the claude-skills repo from current skills and plugins |
 | `sync-plugins.sh` | Hook: Detect new/changed plugins and sync to GitHub repo |
 
+## MCP Servers (2)
+
+| Server | Command | Description |
+|--------|---------|-------------|
+| `memory` | `npx` | `npx -y @modelcontextprotocol/server-memory --memory-path /home/vivekkarmarkar/.claude/memory` |
+| `voicemode` | `uvx` | `uvx --refresh voice-mode` |
+
 ## Auto-Backup
 
-Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, and `~/.claude/hooks/`. On any change:
+Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, `~/.claude/hooks/`, and MCP configs. On any change:
 
 1. Syncs to a local backup at `~/skills-backup/`
 2. Regenerates this README

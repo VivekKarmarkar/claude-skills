@@ -155,11 +155,34 @@ for script in "$HOOKS_DIR"/*.sh; do
   echo "| \`$name\` | $desc |" >> "$README"
 done
 
+# MCP Servers section
+MCP_FILE="$REPO_DIR/mcp-servers.json"
+if [ -f "$MCP_FILE" ]; then
+  mcp_count=$(jq 'keys | length' "$MCP_FILE")
+  echo "" >> "$README"
+  echo "## MCP Servers ($mcp_count)" >> "$README"
+  echo "" >> "$README"
+  echo "| Server | Command | Description |" >> "$README"
+  echo "|--------|---------|-------------|" >> "$README"
+
+  for name in $(jq -r 'keys[]' "$MCP_FILE"); do
+    cmd=$(jq -r ".\"$name\".command" "$MCP_FILE")
+    args=$(jq -r ".\"$name\".args // [] | join(\" \")" "$MCP_FILE")
+    override=$(get_override "mcp-$name")
+    if [ -n "$override" ]; then
+      desc="$override"
+    else
+      desc="\`$cmd $args\`"
+    fi
+    echo "| \`$name\` | \`$cmd\` | $desc |" >> "$README"
+  done
+fi
+
 cat >> "$README" << 'FOOTER'
 
 ## Auto-Backup
 
-Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, and `~/.claude/hooks/`. On any change:
+Hooks watch for changes to `~/.claude/skills/`, `~/.claude/plugins/`, `~/.claude/hooks/`, and MCP configs. On any change:
 
 1. Syncs to a local backup at `~/skills-backup/`
 2. Regenerates this README
