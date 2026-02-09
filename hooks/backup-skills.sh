@@ -79,7 +79,7 @@ if [[ "$FILE_PATH" == *"/.claude/skills/"* ]] || [[ "$FILE_PATH" == *"/.claude/p
         CHANGE_TYPE="skill"
       fi
       git commit -m "Auto-backup: $CHANGE_TYPE updated — $(basename "$FILE_PATH")"
-      git push origin main 2>/dev/null
+      git push origin main 2>> "$BACKUP_DIR/backup.log" || echo "$(date '+%Y-%m-%d %H:%M:%S') - PUSH FAILED for: $FILE_PATH" >> "$BACKUP_DIR/backup.log"
     fi
   fi
 fi
