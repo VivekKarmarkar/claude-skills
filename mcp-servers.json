@@ -17,7 +17,13 @@
       "voice-mode"
     ],
     "env": {
-      "OPENAI_API_KEY": "REDACTED"
+      "OPENAI_API_KEY": "REDACTED",
+      "VOICEMODE_TTS_BASE_URLS": "https://api.openai.com/v1",
+      "VOICEMODE_STT_BASE_URLS": "https://api.openai.com/v1",
+      "VOICEMODE_VOICES": "nova",
+      "VOICEMODE_PREFER_LOCAL": "false",
+      "VOICEMODE_ALWAYS_TRY_LOCAL": "false",
+      "VOICEMODE_AUTO_START_KOKORO": "false"
     }
   },
   "claude-in-chrome": {
