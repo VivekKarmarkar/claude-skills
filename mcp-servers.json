@@ -6,10 +6,7 @@
       "--refresh",
       "voice-mode"
     ],
-    "env": {
-      "VOICEMODE_TTS_BASE_URLS": "https://api.openai.com/v1",
-      "VOICEMODE_STT_BASE_URLS": "https://api.openai.com/v1"
-    }
+    "env": {}
   },
   "memory": {
     "type": "stdio",
