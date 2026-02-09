@@ -1,12 +1,4 @@
 {
-  "voicemode": {
-    "type": "stdio",
-    "command": "uvx",
-    "args": [
-      "voice-mode"
-    ],
-    "env": {}
-  },
   "memory": {
     "type": "stdio",
     "command": "npx",
@@ -17,6 +9,16 @@
       "/home/vivekkarmarkar/.claude/memory"
     ],
     "env": {}
+  },
+  "voicemode": {
+    "type": "stdio",
+    "command": "uvx",
+    "args": [
+      "voice-mode"
+    ],
+    "env": {
+      "OPENAI_API_KEY": "REDACTED"
+    }
   },
   "claude-in-chrome": {
     "type": "chrome-extension",
