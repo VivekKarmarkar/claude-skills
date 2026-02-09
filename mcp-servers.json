@@ -3,7 +3,6 @@
     "type": "stdio",
     "command": "uvx",
     "args": [
-      "--refresh",
       "voice-mode"
     ],
     "env": {}
