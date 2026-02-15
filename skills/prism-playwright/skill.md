@@ -2,6 +2,11 @@
 
 Open OpenAI's Prism LaTeX editor via Playwright and collaboratively write a mathematical/scientific document. **VM-compatible** - uses Playwright MCP instead of Chrome extension.
 
+**Key Features:**
+- AI-powered LaTeX editor with real-time PDF preview
+- Integrated ChatGPT for LaTeX assistance (can help with formatting, equations, citations)
+- Final output is a compiled PDF (not just .tex source)
+
 ## Arguments
 
 `<topic or instructions>` — What the LaTeX document should be about. Can be a math topic, a paper outline, or detailed instructions.
