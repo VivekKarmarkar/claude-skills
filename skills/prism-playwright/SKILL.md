@@ -252,15 +252,18 @@ If the user wants code verification:
 
 ### Step 8: Download the PDF
 
-**CRITICAL:** The final output MUST be a PDF file, not just .tex.
+**CRITICAL:** You MUST download the PDF. This is NOT optional.
 
 1. Take a snapshot to locate the download button in the PDF preview toolbar
-2. Look for the download button (it's near the "Compile" button in the top toolbar)
-   - The button typically appears as a download icon (downward arrow)
+2. The download button is in the toolbar next to the "Compile" button
    - Use `browser_snapshot` to find the exact ref
 3. Click the download button using `mcp__playwright__browser_click`
 4. Wait 2-3 seconds for download to complete
 5. The PDF will be downloaded to `.playwright-mcp/main.pdf`
+6. **Immediately** move it to the LaTeX project folder with a meaningful name:
+   ```bash
+   mv .playwright-mcp/main.pdf ~/Python\ Files/give-claude-a-computer/LaTeX\ project/<topic-name>.pdf
+   ```
 
 ### Step 9: Save Files Locally
 
@@ -278,22 +281,18 @@ If the user wants code verification:
      ```javascript
      window.monaco.editor.getEditors()[0].getModel().getValue()
      ```
-   - Save to same location (e.g., `~/Python Files/give-claude-a-computer/LaTeX project/references.bib`)
+   - Save to same location (e.g., `~/Python Files/give-claude-a-computer/LaTeX project/<topic-name>-references.bib`)
 
-3. **Handle PDF** (optional):
-   - Copy from `.playwright-mcp/main.pdf` to meaningful location if download succeeded
-   - Note: PDF download via Playwright MCP can be unreliable; PDF preview in Prism is sufficient proof of successful compilation
-
-4. **Verify files**:
+3. **Verify all files**:
    ```bash
-   ls -lh "~/Python Files/give-claude-a-computer/LaTeX project/" | grep -E "<topic-name>|references.bib"
+   ls -lh ~/Python\ Files/give-claude-a-computer/LaTeX\ project/ | grep <topic-name>
    ```
 
-5. **Report to user**:
-   - Location of .tex file(s)
+4. **Report to user**:
+   - Location of .tex file
    - Location of .bib file (if applicable)
-   - PDF status (compiled successfully in Prism, viewable in browser)
-   - Compilation results (pages, citations rendered)
+   - Location of .pdf file
+   - File sizes and compilation results (pages, citations rendered)
 
 ## Playwright-Specific Patterns
 
