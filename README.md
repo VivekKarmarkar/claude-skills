@@ -13,7 +13,7 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `githour` | Git Hour: Refactor, Init, Commit, Publish |
 | `gitinit` | Git Init: Initialize a Private Git Repo |
 | `gitpublic` | Git Public: Make a Private Repo Public |
-| `improve` | Improve: Autonomous Agent Improvement Game
+| `improve` | Improve: Autonomous Agent Improvement Game |
 | `litreview` | Literature Review: Research, Organize, Present |
 | `litwebpage` | Lit Webpage: Literature Review to Polished Webpage |
 | `makesong` | Make Song: Generate & Download Music with Suno |
@@ -32,7 +32,7 @@ My personalized operating system for Claude Code — skills, plugins, and hooks 
 | `pdf` | Create, merge, split, fill, and manipulate PDF files |
 | `pptx` | Use this skill any time a .pptx file is involved in any way — as input, output,… |
 | `prism` | Write and compile LaTeX in OpenAI's Prism editor via browser automation |
-| `prism-playwright` | - |
+| `prism-playwright` | Prism LaTeX Writer (Playwright for VM) |
 | `professorclaude` | Professor Claude: Teach a Concept with Interactive Material |
 | `projectstatus` | Generate a project status report. Use when the user wants a status update,… |
 | `refactor` | Refactor: Deep Codebase Cleanup |
