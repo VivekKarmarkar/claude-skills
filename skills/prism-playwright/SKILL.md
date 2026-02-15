@@ -240,7 +240,7 @@ Use for: Academic papers, publications, reusable bibliographies, 10+ references
    - Recompile
 6. If successful, the PDF preview should appear on the right side
 
-### Step 6: Verify with Code (if requested)
+### Step 7: Verify with Code (if requested)
 
 If the user wants code verification:
 
