@@ -250,7 +250,7 @@ If the user wants code verification:
 4. Optionally, add the verification code as a `\begin{verbatim}` listing in the LaTeX document
 5. Recompile to include the code listing
 
-### Step 7: Download the PDF
+### Step 8: Download the PDF
 
 **CRITICAL:** The final output MUST be a PDF file, not just .tex.
 
