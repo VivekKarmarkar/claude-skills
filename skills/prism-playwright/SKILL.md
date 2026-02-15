@@ -107,6 +107,22 @@ This is faster and avoids auto-indent issues.
   model.setValue(text);
   ```
 
+**Citations and Bibliography:**
+Prism supports standard LaTeX citations. Use `\cite{key}` in text and `\begin{thebibliography}` at the end:
+
+```latex
+% In text:
+Discovered by Euler \cite{euler1748}, this formula...
+
+% At end of document:
+\begin{thebibliography}{9}
+\bibitem{euler1748}
+L. Euler. \textit{Introductio in analysin infinitorum}. Lausanne, 1748.
+\end{thebibliography}
+```
+
+Compiles in a single pass, no BibTeX setup needed.
+
 ### Step 5: Compile the Document
 
 1. Take a snapshot to locate the Compile button
