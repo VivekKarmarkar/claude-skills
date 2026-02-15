@@ -108,7 +108,12 @@ This is faster and avoids auto-indent issues.
   ```
 
 **Citations and Bibliography:**
-Prism supports standard LaTeX citations. Use `\cite{key}` in text and `\begin{thebibliography}` at the end:
+
+Prism supports **BOTH** simple and professional bibliography workflows. Choose based on your needs:
+
+**OPTION A — Simple Embedded Bibliography (Quick documents, 1-5 references)**
+
+Use for: Short documents, quick demos, simple reports
 
 ```latex
 % In text:
@@ -121,7 +126,88 @@ L. Euler. \textit{Introductio in analysin infinitorum}. Lausanne, 1748.
 \end{thebibliography}
 ```
 
-Compiles in a single pass, no BibTeX setup needed.
+✅ No external files needed
+✅ Single-pass compilation
+❌ Manual formatting, not reusable
+
+**OPTION B — Professional BibLaTeX (RECOMMENDED for serious work)**
+
+Use for: Academic papers, publications, reusable bibliographies, 10+ references
+
+**Setup:**
+
+1. **Create `references.bib` file** in Prism:
+   - Click "Add file or folder" button
+   - Select "Add File"
+   - Name it `references.bib`
+   - Populate with professional BibTeX entries (see format below)
+
+2. **In main.tex preamble:**
+   ```latex
+   \usepackage[style=numeric,sorting=nyt]{biblatex}
+   \addbibresource{references.bib}
+   ```
+
+3. **In text:**
+   ```latex
+   According to Knuth \cite{knuth1997art}, algorithms...
+   ```
+
+4. **At end of document (instead of `\end{document}`):**
+   ```latex
+   \printbibliography
+
+   \end{document}
+   ```
+
+**Professional BibTeX Entry Format:**
+
+```bibtex
+@book{knuth1997art,
+  author    = {Donald E. Knuth},
+  title     = {The Art of Computer Programming, Volume 1: Fundamental Algorithms},
+  publisher = {Addison-Wesley},
+  year      = {1997},
+  edition   = {3rd},
+  isbn      = {0-201-89683-4}
+}
+
+@article{dijkstra1968letters,
+  author  = {Edsger W. Dijkstra},
+  title   = {Letters to the editor: go to statement considered harmful},
+  journal = {Communications of the ACM},
+  volume  = {11},
+  number  = {3},
+  pages   = {147--148},
+  year    = {1968},
+  doi     = {10.1145/362929.362947}
+}
+
+@inproceedings{lamport1978time,
+  author    = {Leslie Lamport},
+  title     = {Time, Clocks, and the Ordering of Events in a Distributed System},
+  booktitle = {Communications of the ACM},
+  volume    = {21},
+  number    = {7},
+  pages     = {558--565},
+  year      = {1978},
+  doi       = {10.1145/359545.359563}
+}
+```
+
+✅ **TESTED AND CONFIRMED WORKING** in Prism
+✅ Professional formatting with DOIs, ISBNs, volume numbers
+✅ Reusable across projects
+✅ Single-pass compilation (Prism handles biber automatically)
+✅ Industry standard for academic/professional publications
+
+**When to use Professional BibLaTeX:**
+- Academic papers and publications
+- Documents with 10+ references
+- Collaborative work (shared `.bib` databases)
+- When you need DOI/ISBN/volume number formatting
+- When bibliography will be reused across projects
+- **Any serious professional work**
 
 ### Step 5: Compile the Document
 
