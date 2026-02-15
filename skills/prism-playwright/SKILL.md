@@ -226,7 +226,7 @@ Use for: Academic papers, publications, reusable bibliographies, 10+ references
 - When bibliography will be reused across projects
 - **Any serious professional work**
 
-### Step 5: Compile the Document
+### Step 6: Compile the Document
 
 1. Take a snapshot to locate the Compile button
 2. Click the Compile button using `mcp__playwright__browser_click` with the button's ref
